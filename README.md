@@ -8,7 +8,7 @@
 
 ## About
 
-This project tests the functionality of the feed loader. In order to run the tests you would need to run the index.html file from the dist folder in a browser. The tests might take a bit of time to complete due to the loading of the feeds.
+This project tests the functionality of the feed loader. In order to run the tests you would need to run the index.html file from the dist folder in a browser. To be able to use build tools you will need to work on the files found in the src folder and run gulp command in the terminal from projects directory. The tests might take a bit of time to complete due to the loading of the feeds.
 
 ## Dependencies
 

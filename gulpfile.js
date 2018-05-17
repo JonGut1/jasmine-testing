@@ -15,7 +15,7 @@ browserSync.init({
 * would work for other browsers and also for the last 2 versions.
 */
 gulp.task('styles', function(done) {
-	gulp.src('css/*.css')
+	gulp.src('src/css/*.css')
 	.pipe(autoprefixer({
 		browsers: ['last 2 versions']
 	}))
@@ -28,17 +28,17 @@ gulp.task('styles', function(done) {
 * it watches for the changes in .css files, index.html and .js files.
 */
 gulp.task('default', function(done) {
-	gulp.watch('css/*.css', gulp.series('styles'))
-	gulp.watch('index.html', gulp.series('copy-html'))
-	gulp.watch('js/*.js', gulp.series('scripts'))
-	gulp.watch('jasmine/spec/*.js', gulp.series('jasmine'))
+	gulp.watch('src/css/*.css', gulp.series('styles'))
+	gulp.watch('src/index.html', gulp.series('copy-html'))
+	gulp.watch('src/js/*.js', gulp.series('scripts'))
+	gulp.watch('src/jasmine/spec/*.js', gulp.series('jasmine'))
 	done()
 });
 /**
 * Saves .js files to the dist folder.
 */
 gulp.task('scripts', function(done) {
-	gulp.src('js/*.js')
+	gulp.src('src/js/*.js')
 	.pipe(gulp.dest('dist/js'))
 	browserSync.reload();
 	done()
@@ -48,7 +48,7 @@ gulp.task('scripts', function(done) {
 * and also transpiles the code to ES2015.
 */
 gulp.task('jasmine', function(done) {
-	gulp.src('jasmine/spec/*.js')
+	gulp.src('src/jasmine/spec/*.js')
 	.pipe(babel( {
 		plugins: ['transform-runtime'],
         presets: ['env']
@@ -61,7 +61,7 @@ gulp.task('jasmine', function(done) {
 * Copies the index.html file to a dist folder on save.
 */
 gulp.task('copy-html', function(done) {
-	gulp.src('index.html')
+	gulp.src('src/index.html')
 	.pipe(gulp.dest('dist'))
 	browserSync.reload();
 	done()
