@@ -155,6 +155,10 @@ $(function () {
             p++;
             done();
         });
+        afterAll(function (done) {
+            loadFeed(0);
+            done();
+        });
         it('the content changed in Udacity Blog', function () {
             expect(hrefArr.current).not.toEqual(hrefArr.prev);
         });
