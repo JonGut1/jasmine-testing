@@ -1,9 +1,7 @@
 var gulp = require('gulp');
-var sass = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
 var browserSync = require('browser-sync').create();
 var babel = require('gulp-babel');
-var browserify = require('gulp-browserify');
 /**
 * Refreshes the page after save file
 */
@@ -12,8 +10,7 @@ browserSync.init({
      browser: ["google chrome"]
 });
 /**
-* converts the .scss files to css and stores,
-* them in a new folder.
+* saves css files to dist/css folder.
 * also adds prefixes to certain commands, so that they,
 * would work for other browsers and also for the last 2 versions.
 */
@@ -28,7 +25,7 @@ gulp.task('styles', function(done) {
 });
 /**
 * Runs the default gulp command.
-* it watches for the changes in .scss files, index.html and .js files.
+* it watches for the changes in .css files, index.html and .js files.
 */
 gulp.task('default', function(done) {
 	gulp.watch('css/*.css', gulp.series('styles'))
@@ -38,8 +35,7 @@ gulp.task('default', function(done) {
 	done()
 });
 /**
-* Creates new .js files that are converted to ES 2015.
-* also those files are saved in a different folder.
+* Saves .js files to the dist folder.
 */
 gulp.task('scripts', function(done) {
 	gulp.src('js/*.js')
@@ -47,9 +43,16 @@ gulp.task('scripts', function(done) {
 	browserSync.reload();
 	done()
 });
-
+/**
+* Saves the jasmine files to a dist folder
+* and also transpiles the code to ES2015.
+*/
 gulp.task('jasmine', function(done) {
 	gulp.src('jasmine/spec/*.js')
+	.pipe(babel( {
+		plugins: ['transform-runtime'],
+        presets: ['env']
+    }))
 	.pipe(gulp.dest('dist/jasmine/spec'))
 	browserSync.reload();
 	done()
@@ -63,4 +66,3 @@ gulp.task('copy-html', function(done) {
 	browserSync.reload();
 	done()
 });
-
