@@ -25,27 +25,25 @@ $(function() {
          * in the allFeeds object and ensures it has a URL defined
          * and that the URL is not empty.
          */
-        allFeeds.forEach(function(el) {
-            it('the url is defined', function() {
+            it('the url is defined and not empty', function() {
+              allFeeds.forEach(function(el) {
                 expect(el.url).toBeDefined();
-            });
-            it('the url is not empty', function() {
                 expect(el.url).toBeTruthy();
+              });
             });
-        });
+
 
         /* This test loops through each feed
          * in the allFeeds object and ensures it has a name defined
          * and that the name is not empty.
          */
-        allFeeds.forEach(function(el) {
-            it('the name is defined', function() {
+
+            it('the name is defined and not empty', function() {
+              allFeeds.forEach(function(el) {
                 expect(el.name).toBeDefined();
-            });
-            it('the name is not empty', function() {
                 expect(el.name).toBeTruthy();
-            })
-        });
+              });
+            });
     });
 
     /* Test the functionality of the menu
