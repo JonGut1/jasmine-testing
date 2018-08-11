@@ -26,6 +26,6 @@ The jasmine, jasmine-jquery and jquery is used throughout this project both in t
 
 The normalize.css corrects some of the issues regarding the styling not working as aspected or just simply not working in other browsers.
 
-Gulp is used to reload the page on save for easier working experience. Also the gulp is used for the converting of the feedreader.js from ES6 to ES2015. Also it is used for adding prefexis to the css elements.
+Gulp is used to reload the page on save for easier working experience. Also the gulp is used for the converting of the feedreader.js from ES6 to ES5. Also it is used for adding prefexis to the css elements.
 
 Node.js and npm.js is also required to be able to use the gulp functionality. As well as the package.json file which has all of the dependencies for the gulp and babel functionality.
